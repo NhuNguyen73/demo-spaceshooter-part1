@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,10 +8,11 @@ using UnityEngine;
 public class Guns
 {
     public GameObject rightGun, leftGun, centralGun;
-    [HideInInspector] public ParticleSystem leftGunVFX, rightGunVFX, centralGunVFX; 
+    [HideInInspector] public ParticleSystem leftGunVFX, rightGunVFX, centralGunVFX;
 }
 
-public class PlayerShooting : MonoBehaviour {
+public class PlayerShooting : MonoBehaviour
+{
 
     [Tooltip("shooting frequency. the higher the more frequent")]
     public float fireRate;
@@ -25,11 +26,11 @@ public class PlayerShooting : MonoBehaviour {
 
     [Tooltip("current weapon power")]
     [Range(1, 4)]       //change it if you wish
-    public int weaponPower = 1; 
+    public int weaponPower = 1;
 
     public Guns guns;
-    bool shootingIsActive = true; 
-    [HideInInspector] public int maxweaponPower = 4; 
+    bool shootingIsActive = true;
+    [HideInInspector] public int maxweaponPower = 4;
     public static PlayerShooting instance;
 
     private void Awake()
@@ -51,14 +52,14 @@ public class PlayerShooting : MonoBehaviour {
         {
             if (Time.time > nextFire)
             {
-                MakeAShot();                                                         
+                MakeAShot();
                 nextFire = Time.time + 1 / fireRate;
             }
         }
     }
 
     //method for a shot
-    void MakeAShot() 
+    void MakeAShot()
     {
         switch (weaponPower) // according to weapon power 'pooling' the defined anount of projectiles, on the defined position, in the defined rotation
         {
