@@ -11,7 +11,6 @@ public class Health : MonoBehaviour
         healthPoint = defaultHealthPoint; 
     }
 
-    // Hàm nhận sát thương
     public void TakeDamage(int damage)
     {
         if (healthPoint <= 0) return; 
